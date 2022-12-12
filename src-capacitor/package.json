@@ -1,0 +1,15 @@
+{
+  "name": "quasar-project-2",
+  "version": "0.0.1",
+  "description": "A Quasar Project",
+  "author": "Nazmul Haque <nazmul.cste07@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "capacitor-native-biometric": "^4.1.3"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^4.6.1",
+    "@capacitor/cli": "^4.6.1",
+    "@capacitor/core": "^4.6.1"
+  }
+}
