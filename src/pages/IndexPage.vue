@@ -5,6 +5,7 @@
     <q-btn label="Get Cookie" color="primary" @click="getCookies" />
     <q-btn label="Prompt" color="primary" @click="prompt = true" />
     <q-btn label="Biometric" color="primary" @click="performBiometricVerificatin" />
+    <q-btn label="Take Picture" color="primary" @click="getCameraPicture" />
 
     <q-dialog v-model="alert">
       <q-card>
@@ -59,6 +60,26 @@
 import { defineComponent, ref } from 'vue'
 import { NativeBiometric, BiometryType } from 'capacitor-native-biometric'
 import { Cookies } from 'quasar'
+import { Camera, CameraResultType } from '@capacitor/camera'
+
+const takePicture = async () => {
+  const image = await Camera.getPhoto({
+    quality: 90,
+    allowEditing: true,
+    resultType: CameraResultType.Uri
+  })
+
+  // image.webPath will contain a path that can be set as an image src.
+  // You can access the original file using image.path, which can be
+  // passed to the Filesystem API to read the raw data of the image,
+  // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+  const imageUrl = image.webPath
+
+  console.log('Image Url: ' + imageUrl)
+  // Can be set to the src of an image now
+  // imageElement.src = imageUrl
+}
+console.log('take picture ' + takePicture)
 
 defineComponent({
   name: 'IndexPage'
@@ -133,6 +154,44 @@ export default {
       const value = 'cbm_cookie'
       Cookies.set('cookie_name', value)
       console.log('set cookie: ' + value)
+    },
+
+    async captureImage () {
+      navigator.camera.getPicture(
+        data => { // on success
+          // imageSrc.value = `data:image/jpeg;base64,${data}`
+          console.log(`data:image/jpeg;base64,${data}`)
+        },
+        () => { // on fail
+          // $q.notify('Could not access device camera.')
+          console.log('Could not access device camera.')
+        },
+        {
+          // camera options
+        }
+      )
+    },
+
+    async getCameraPicture () {
+      const takePicture = async () => {
+        const image = await Camera.getPhoto({
+          quality: 90,
+          allowEditing: true,
+          resultType: CameraResultType.Uri
+        })
+
+        // image.webPath will contain a path that can be set as an image src.
+        // You can access the original file using image.path, which can be
+        // passed to the Filesystem API to read the raw data of the image,
+        // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+        const imageUrl = image.webPath
+
+        console.log('Image Url: ' + imageUrl)
+        // Can be set to the src of an image now
+        // imageElement.src = imageUrl
+      }
+
+      console.log('Image taker": ' + takePicture.name)
     }
   }
 }
