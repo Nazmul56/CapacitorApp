@@ -1,9 +1,10 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
     <q-btn label="Alert" color="primary" @click="alert = true" />
+    <q-btn label="Prompt" color="primary" @click="prompt = true" />
+    <q-btn label="Dialog Capacitor" color="primary" @click="showAlertDialog" />
     <q-btn label="Set Cookie" color="primary" @click="setCookies " />
     <q-btn label="Get Cookie" color="primary" @click="getCookies" />
-    <q-btn label="Prompt" color="primary" @click="prompt = true" />
     <q-btn label="Biometric" color="primary" @click="performBiometricVerificatin" />
     <q-btn label="Take Picture" color="primary" @click="getCameraPicture" />
 
@@ -61,6 +62,7 @@ import { defineComponent, ref } from 'vue'
 import { NativeBiometric, BiometryType } from 'capacitor-native-biometric'
 import { Cookies } from 'quasar'
 import { Camera, CameraResultType } from '@capacitor/camera'
+import { Dialog } from '@capacitor/dialog'
 
 defineComponent({
   name: 'IndexPage'
@@ -135,6 +137,12 @@ export default {
       const value = 'cbm_cookie'
       Cookies.set('cookie_name', value)
       console.log('set cookie: ' + value)
+    },
+    async showAlertDialog () {
+      await Dialog.alert({
+        title: 'Stop',
+        message: 'this is an error'
+      })
     },
     async getCameraPicture () {
       console.log(' Taking pic function call')
