@@ -7,6 +7,9 @@
     <q-btn label="Get Cookie" color="primary" @click="getCookies" />
     <q-btn label="Biometric" color="primary" @click="performBiometricVerificatin" />
     <q-btn label="Take Picture" color="primary" @click="getCameraPicture" />
+    <q-btn label="Set name in Pref" color="primary" @click="setNameInPreference" />
+    <q-btn label="Get name from Pref" color="primary" @click="checkNameInPreference " />
+    <q-btn label="Remove name Capacitor" color="primary" @click="removeName" />
 
     <q-dialog v-model="alert">
       <q-card>
@@ -63,6 +66,7 @@ import { NativeBiometric, BiometryType } from 'capacitor-native-biometric'
 import { Cookies } from 'quasar'
 import { Camera, CameraResultType } from '@capacitor/camera'
 import { Dialog } from '@capacitor/dialog'
+import { Preferences } from '@capacitor/preferences'
 
 defineComponent({
   name: 'IndexPage'
@@ -143,6 +147,23 @@ export default {
         title: 'Stop',
         message: 'this is an error'
       })
+    },
+
+    async setNameInPreference () {
+      await Preferences.set({
+        key: 'name',
+        value: 'Max'
+      })
+    },
+
+    async checkNameInPreference () {
+      const { value } = await Preferences.get({ key: 'name' })
+
+      console.log(`Hello ${value}!`)
+    },
+
+    async removeName () {
+      await Preferences.remove({ key: 'name' })
     },
     async getCameraPicture () {
       console.log(' Taking pic function call')
