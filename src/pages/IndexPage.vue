@@ -62,25 +62,6 @@ import { NativeBiometric, BiometryType } from 'capacitor-native-biometric'
 import { Cookies } from 'quasar'
 import { Camera, CameraResultType } from '@capacitor/camera'
 
-const takePicture = async () => {
-  const image = await Camera.getPhoto({
-    quality: 90,
-    allowEditing: true,
-    resultType: CameraResultType.Uri
-  })
-
-  // image.webPath will contain a path that can be set as an image src.
-  // You can access the original file using image.path, which can be
-  // passed to the Filesystem API to read the raw data of the image,
-  // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-  const imageUrl = image.webPath
-
-  console.log('Image Url: ' + imageUrl)
-  // Can be set to the src of an image now
-  // imageElement.src = imageUrl
-}
-console.log('take picture ' + takePicture)
-
 defineComponent({
   name: 'IndexPage'
 })
@@ -155,25 +136,28 @@ export default {
       Cookies.set('cookie_name', value)
       console.log('set cookie: ' + value)
     },
-
-    async captureImage () {
-      navigator.camera.getPicture(
-        data => { // on success
-          // imageSrc.value = `data:image/jpeg;base64,${data}`
-          console.log(`data:image/jpeg;base64,${data}`)
-        },
-        () => { // on fail
-          // $q.notify('Could not access device camera.')
-          console.log('Could not access device camera.')
-        },
-        {
-          // camera options
-        }
-      )
-    },
-
     async getCameraPicture () {
-      const takePicture = async () => {
+      console.log(' Taking pic function call')
+
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: true,
+        resultType: CameraResultType.Uri
+      })
+
+      console.log('Inside Tsking pic')
+      // image.webPath will contain a path that can be set as an image src.
+      // You can access the original file using image.path, which can be
+      // passed to the Filesystem API to read the raw data of the image,
+      // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+      const imageUrl = image.webPath
+
+      console.log('Image Url: ' + imageUrl)
+      // Can be set to the src of an image now
+      // imageElement.src = imageUrl
+
+      /* const takePicture = async () => {
+        console.log('Inside Tsking pic')
         const image = await Camera.getPhoto({
           quality: 90,
           allowEditing: true,
@@ -190,8 +174,7 @@ export default {
         // Can be set to the src of an image now
         // imageElement.src = imageUrl
       }
-
-      console.log('Image taker": ' + takePicture.name)
+      console.log('Image taker": ' + takePicture) */
     }
   }
 }
