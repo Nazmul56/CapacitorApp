@@ -1,0 +1,60 @@
+@use "sass:map";
+@import "../variables.scss";
+
+.page{
+    &-title{
+        text-transform: uppercase;
+    }
+}
+
+.cart{
+    &-table{
+        background-color: map.get($colors, "brand-800");
+        border: 1px solid map.get($colors, "brand-600");
+        border-radius: 0;
+
+        .q-table__title{
+            color: map.get($colors, "white");
+        }
+
+        .q-table__middle{
+            border-top: 1px solid map.get($colors, "brand-600");
+        }
+
+        thead{
+            display: none;
+        }
+
+        .q-table__bottom{
+            display: none;
+        }
+
+        .q-td{
+            border-color: map.get($colors, "brand-600");
+        }
+    }
+
+    &-quantity{
+        &-input{
+            width: 100px;
+            
+            .q-field__control{
+                height: 38px;
+                margin: 0;
+            }
+
+            .q-field__marginal{
+                height: 32px;
+            }
+        }
+    }
+}
+
+.shop{
+    &-name{
+        display: inline-block;
+        width: auto;
+        padding: 0;
+    }
+}
+

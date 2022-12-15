@@ -1,0 +1,33 @@
+@use "sass:map";
+@import "../variables.scss";
+
+.list {
+    &-benefits {
+        list-style-type: none;
+        padding: 0;
+
+        .grey {
+            background-color: map.get($colors, "gray-600");
+        }
+    }
+}
+
+.plan {
+    &-box {
+        border: 1px solid map.get($colors, "gray-600");
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.bill {
+    &-btn {
+        border: 1px solid map.get($colors, "white");
+
+        .bg-white {
+            color: map.get($colors, "brand-900") !important;
+        }
+    }
+}

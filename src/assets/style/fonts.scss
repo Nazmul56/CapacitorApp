@@ -1,0 +1,12 @@
+@mixin font($font-family, $font-file, $font-weight) {
+    @font-face {
+        font-family: $font-family;
+        src: url($font-file+".ttf") format('truetype');
+        font-weight: $font-weight;
+    }
+}
+
+@include font('Manrope', '/assets/fonts/Manrope-Regular', 300);
+@include font('Manrope-semi-bold', '/assets/fonts/Manrope-SemiBold', 500);
+@include font('Manrope-bold', '/assets/fonts/Manrope-Bold', 700);
+@include font('Versailles-Regular', '/assets/fonts/Versailles-Regular', 300);

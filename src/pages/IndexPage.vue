@@ -7,11 +7,12 @@
     <q-btn label="Get Cookie" color="primary" @click="getCookies" />
     <q-btn label="Biometric" color="primary" @click="performBiometricVerificatin" />
     <q-btn label="Take Picture" color="primary" @click="getCameraPicture" />
-    <q-btn label="Set name in Pref" color="primary" @click="setNameInPreference" />
+    <!--q-btn label="Set name in Pref" color="primary" @click="setNameInPreference" />
     <q-btn label="Get name from Pref" color="primary" @click="checkNameInPreference " />
     <q-btn label="Remove name Capacitor" color="primary" @click="removeName" />
     <q-btn label="Register FCM" color="primary" @click="registerNotifications" />
-    <q-btn label="FCM Listener" color="primary" @click="addListeners" />
+    <q-btn label="FCM Listener" color="primary" @click="addListeners" /-->
+    <q-btn label="Login page" color="primary" @click="moveToAnotherPage" />
 
     <q-dialog v-model="alert">
       <q-card>
@@ -67,9 +68,9 @@ import { defineComponent, ref } from 'vue'
 import { NativeBiometric, BiometryType } from 'capacitor-native-biometric'
 import { Cookies } from 'quasar'
 import { Camera, CameraResultType } from '@capacitor/camera'
-import { Dialog } from '@capacitor/dialog'
-import { Preferences } from '@capacitor/preferences'
-import { PushNotifications } from '@capacitor/push-notifications'
+// import { Dialog } from '@capacitor/dialog'
+// import { Preferences } from '@capacitor/preferences'
+// import { PushNotifications } from '@capacitor/push-notifications'
 
 defineComponent({
   name: 'IndexPage'
@@ -145,7 +146,7 @@ export default {
       Cookies.set('cookie_name', value)
       console.log('set cookie: ' + value)
     },
-    async showAlertDialog () {
+    /* async showAlertDialog () {
       await Dialog.alert({
         title: 'Stop',
         message: 'this is an error'
@@ -167,7 +168,7 @@ export default {
 
     async removeName () {
       await Preferences.remove({ key: 'name' })
-    },
+    }, */
 
     async getCameraPicture () {
       console.log(' Taking pic function call')
@@ -186,7 +187,7 @@ export default {
       const imageUrl = image.webPath
       console.log('Image Url: ' + imageUrl)
     },
-    async addListeners () {
+    /* async addListeners () {
       await PushNotifications.addListener('registration', token => {
         console.info('Registration token: ', token.value)
       })
@@ -215,11 +216,14 @@ export default {
       }
 
       await PushNotifications.register()
-    },
-    async getDeliveredNotifications () {
+    }, */
+    moveToAnotherPage () {
+      this.$router.push('login')
+    }
+    /* async getDeliveredNotifications () {
       const notificationList = await PushNotifications.getDeliveredNotifications()
       console.log('delivered notifications', notificationList)
-    }
+    } */
   }
 }
 </script>

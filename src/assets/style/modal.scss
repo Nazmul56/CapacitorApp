@@ -1,0 +1,148 @@
+$color_1: white;
+$color_2: #a6a6aa;
+$background-color_1: #3d3e42;
+$background-color_2: #6a6b6f;
+$background-color_3: rgba(255, 255, 255, 0.1);
+
+/* modal css start */
+.main-wrapper {
+  margin: 10px;
+}
+// .hiring-modal {
+//   margin-top: -115px;
+//   width: 100%;
+//   // height: 372px;
+//   background-color: $background-color_1;
+//   overflow: hidden;
+// }
+.cbm-modal-large {
+  width: 900px;
+  max-width: 80vw;
+  background-color: #3d3e42;
+  overflow: hidden;
+  box-shadow: 0px 0px 1px rgba(48, 49, 51, 0.05),
+    0px 8px 16px rgba(48, 49, 51, 0.1);
+  border-radius: 1px;
+}
+
+.cbm-modal-medium {
+  width: 700px;
+  max-width: 80vw;
+  background-color: #3d3e42;
+  overflow: hidden;
+  box-shadow: 0px 0px 1px rgba(48, 49, 51, 0.05),
+    0px 8px 16px rgba(48, 49, 51, 0.1);
+  border-radius: 1px;
+}
+
+.cbm-modal-small {
+  width: 300px;
+  background-color: #3d3e42;
+  overflow: hidden;
+  box-shadow: 0px 0px 1px rgba(48, 49, 51, 0.05),
+    0px 8px 16px rgba(48, 49, 51, 0.1);
+  border-radius: 1px;
+}
+
+.cbm-modal-semi-small {
+  width: 500px !important;
+  background-color: #3d3e42 !important;
+  overflow: hidden !important;
+  box-shadow: 0px 0px 1px rgba(48, 49, 51, 0.05),
+    0px 8px 16px rgba(48, 49, 51, 0.1) !important;
+  border-radius: 1px !important;
+}
+
+
+.modal-section {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: -50px;
+  left: -18px;
+}
+.modal-card-title-name {
+  word-wrap: break-word;
+  margin-top: 10px;
+  color: $color_1;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.modal-div-left {
+  width: 210px;
+}
+.cross-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+.card-items {
+  display: flex;
+  flex-direction: column;
+}
+.avator-img {
+  width: 85px;
+  height: 85px;
+  border-radius: 1000px;
+  position: relative;
+  right: 8px;
+}
+.image-avatar {
+  object-fit: cover;
+}
+.card-caption {
+  font-weight: 700;
+  font-size: 16px;
+  color: $color_1;
+}
+.modal-my-card-expert {
+  width: 100%;
+  background-color: $background-color_2;
+  height: 350px;
+}
+.filter-name-modal {
+  font-size: 12px;
+  font-weight: 200;
+  color: $color_1;
+  margin-top: -5px;
+}
+.filter-name-rate-modal {
+  font-size: 12px;
+  font-weight: 200;
+  color: $color_2;
+  margin-top: -20px;
+}
+.filter-name-rate-type-modal {
+  font-size: 12px;
+  font-weight: 200;
+  color: $color_2;
+  margin-top: -30px;
+}
+.modal-right-title {
+  font-weight: 700;
+  color: $color_1;
+}
+.modal-div-right {
+  width: 100%;
+}
+.modal-text-area {
+  width: 100%;
+  margin-top: -40px;
+  background-color: $background-color_3;
+  font-size: 16px;
+  height: 96px;
+}
+.left {
+  width: 15%;
+}
+.right {
+  width: 85%;
+}
+.modal-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.cbm-input-primary > .q-field__inner > .q-field__control.is-invalid {
+  border: 1px solid #f44336 !important;
+}

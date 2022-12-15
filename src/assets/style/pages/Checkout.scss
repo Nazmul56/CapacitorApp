@@ -1,0 +1,49 @@
+@use "sass:map";
+@import "../variables.scss";
+
+.checkout{
+    &-seller{
+        &-block{
+            border: 1px solid map.get($colors, "white");
+
+            .list{
+                list-style: none;
+
+                li{
+                    border-bottom: 1px dashed map.get($colors, "gray-500");
+                }
+
+                li:last-child{
+                    border-bottom: none;
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.payment{
+    &-icons{
+        width: auto;
+    }
+
+    &-label{
+        width: auto;
+        text-transform: none;
+    }
+
+    &-option{
+        &-btn{
+            border: 1px solid map.get($colors, "white");
+            border-radius: 0;
+
+            button{
+                border-right: 1px solid map.get($colors, "white");
+            }
+
+            button:last-child{
+                border: none;
+            }
+        }
+    }
+}

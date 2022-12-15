@@ -1,0 +1,22 @@
+@import "../fonts.scss";
+@import "../variables.scss";
+
+.closet{
+    &-heart{
+        right: 0;
+        top: 0;
+        right: 18px;
+        top: 18px;
+        padding: 0 6px;
+
+        img{
+            vertical-align: sub;
+        }
+    }
+
+    &-label
+    {
+        top: 18px;
+        left: 18px;
+    }
+}

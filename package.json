@@ -23,7 +23,18 @@
     "quasar": "^2.6.0",
     "vue": "^3.2.45",
     "vue-i18n": "^9.2.2",
-    "vue-router": "^4.0.0"
+    "vue-router": "^4.0.0",
+    "bootstrap": "^5.2.2",
+    "jquery": "^3.6.1",
+    "js-cookie": "^3.0.1",
+    "moment": "^2.29.4",
+    "popper.js": "^1.16.1",
+    "vue-client-only": "^2.1.0",
+    "vue-dragscroll": "^4.0.5",
+    "vue-toastification": "^2.0.0-rc.5",
+    "@capacitor/dialog": "^4.1.0",
+    "@capacitor/preferences": "^4.0.2",
+    "@capacitor/push-notifications": "^4.1.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
@@ -34,7 +45,9 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.0.0",
-    "eslint-webpack-plugin": "^3.1.1"
+    "eslint-webpack-plugin": "^3.1.1",
+    "sass": "~1.32.12",
+    "sass-loader": "^10.3.1"
   },
   "browserslist": [
     "last 10 Chrome versions",

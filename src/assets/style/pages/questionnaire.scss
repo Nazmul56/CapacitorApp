@@ -1,0 +1,86 @@
+.select-style-attributes-page .color-selection-box {
+  max-height: 420px;
+  margin-bottom: 40px;
+}
+.select-style-attributes-page .color-selection-box .btn-group-vertical {
+  width: 100%;
+}
+.select-style-attributes-page .color-selection-box p {
+  color: #e7e7e7;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: "Manrope-font";
+  margin-bottom: 16px;
+  width: 85%;
+}
+.select-style-attributes-page .color-selection-box .btn-group-vertical .btn {
+  width: 100%;
+  border-radius: 0;
+  margin-bottom: 16px;
+  height: 36px;
+}
+.select-style-attributes-page .selection-tab {
+  margin-bottom: 32px;
+}
+.select-style-attributes-page .selection-tab ul {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  padding: 0 0 5px 0;
+}
+.select-style-attributes-page .selection-tab ul li {
+  list-style: none;
+  color: #f5f5f5;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: "Manrope-font";
+  margin-right: 16px;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+.select-style-attributes-page .selection-tab ul li.active {
+  font-weight: 700;
+  border-bottom: 2px solid #d3d3d5;
+}
+.select-style-attributes-page .selection-tab ul::-webkit-scrollbar {
+  height: 4px;
+}
+.select-style-attributes-page .selection-tab ul::-webkit-scrollbar-track {
+  background: #2e2e31;
+}
+.select-style-attributes-page .selection-tab ul::-webkit-scrollbar-thumb {
+  background: #6a6b6f;
+}
+.select-style-attributes-page .selection-details {
+  font-size: 14px;
+}
+.select-style-attributes-page .selection-details .form-check {
+  padding: 0;
+  width: 100%;
+}
+.select-style-attributes-page .selection-details .form-check .form-check-label {
+  padding: 8px 16px;
+  text-align: center;
+  width: 100%;
+  border: 1px solid #efefef;
+  border-radius: 1px;
+  cursor: pointer;
+  color: #c4c4c7;
+  margin-bottom: 16px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+.select-style-attributes-page input {
+  display: none;
+}
+.select-style-attributes-page input:checked + label {
+  background-color: #ffffff;
+  color: #212529 !important;
+}
+@media screen and (max-width: 575px) {
+  .select-style-attributes-page .selection-tab ul::-webkit-scrollbar-thumb {
+      background: #2e2e31;
+  }
+}
