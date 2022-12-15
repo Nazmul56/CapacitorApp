@@ -10,6 +10,8 @@
     <q-btn label="Set name in Pref" color="primary" @click="setNameInPreference" />
     <q-btn label="Get name from Pref" color="primary" @click="checkNameInPreference " />
     <q-btn label="Remove name Capacitor" color="primary" @click="removeName" />
+    <q-btn label="Register FCM" color="primary" @click="registerNotifications" />
+    <q-btn label="FCM Listener" color="primary" @click="addListeners" />
 
     <q-dialog v-model="alert">
       <q-card>
@@ -67,6 +69,7 @@ import { Cookies } from 'quasar'
 import { Camera, CameraResultType } from '@capacitor/camera'
 import { Dialog } from '@capacitor/dialog'
 import { Preferences } from '@capacitor/preferences'
+import { PushNotifications } from '@capacitor/push-notifications'
 
 defineComponent({
   name: 'IndexPage'
@@ -165,6 +168,7 @@ export default {
     async removeName () {
       await Preferences.remove({ key: 'name' })
     },
+
     async getCameraPicture () {
       console.log(' Taking pic function call')
 
@@ -180,8 +184,41 @@ export default {
       // passed to the Filesystem API to read the raw data of the image,
       // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
       const imageUrl = image.webPath
-
       console.log('Image Url: ' + imageUrl)
+    },
+    async addListeners () {
+      await PushNotifications.addListener('registration', token => {
+        console.info('Registration token: ', token.value)
+      })
+
+      await PushNotifications.addListener('registrationError', err => {
+        console.error('Registration error: ', err.error)
+      })
+
+      await PushNotifications.addListener('pushNotificationReceived', notification => {
+        console.log('Push notification received: ', notification)
+      })
+
+      await PushNotifications.addListener('pushNotificationActionPerformed', notification => {
+        console.log('Push notification action performed', notification.actionId, notification.inputValue)
+      })
+    },
+    async registerNotifications () {
+      let permStatus = await PushNotifications.checkPermissions()
+
+      if (permStatus.receive === 'prompt') {
+        permStatus = await PushNotifications.requestPermissions()
+      }
+
+      if (permStatus.receive !== 'granted') {
+        throw new Error('User denied permissions!')
+      }
+
+      await PushNotifications.register()
+    },
+    async getDeliveredNotifications () {
+      const notificationList = await PushNotifications.getDeliveredNotifications()
+      console.log('delivered notifications', notificationList)
     }
   }
 }

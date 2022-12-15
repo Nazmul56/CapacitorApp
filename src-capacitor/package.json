@@ -8,6 +8,7 @@
     "@capacitor/camera": "^4.1.4",
     "@capacitor/dialog": "^4.1.0",
     "@capacitor/preferences": "^4.0.2",
+    "@capacitor/push-notifications": "^4.1.2",
     "@ionic/pwa-elements": "^3.1.1",
     "capacitor-native-biometric": "^4.1.3"
   },
