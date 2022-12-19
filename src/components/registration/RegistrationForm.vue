@@ -467,7 +467,7 @@ info@casabeaumonde.com for CBM and to your email address.
 // import axios from 'axios'
 // // import { useToast } from "vue-toastification";;
 import { RegisterHandler } from '../../service/authentication.js'
-import { useQuasar } from 'quasar'
+import { useQuasar, Cookies } from 'quasar'
 import { usingToast } from '../../utils/toastUtils'
 
 export default {
@@ -524,7 +524,13 @@ export default {
     },
     async submitRegistration () {
       try {
-        await RegisterHandler(this.register_form, '/register/two-factor-auth')
+        const response = await RegisterHandler(this.register_form, 'registration/verification')
+
+        if (response.status === 200) {
+          Cookies.set('token', response.data.data.token)
+          // window.location.href = nextStep
+          this.$router.push('registration/verification')
+        }
       } catch (error) {
         this.formVerification(error)
       }

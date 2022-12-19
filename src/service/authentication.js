@@ -3,6 +3,7 @@ import axios from 'axios'
 import { login_api, questionnaires_api } from '../const/api'
 import { apiBaseUrl } from '../const/config'
 import Cookies from 'js-cookie'
+// import { from } from 'core-js/core/array'
 
 /* const objectToFormData = (obj) => {
   const formData = new FormData()
@@ -32,16 +33,19 @@ export const loginHanadler = async ({ email, password }) => {
 }
 
 export const RegisterHandler = async (form, nextStep) => {
+  form.as = 'customer'
+  console.log('Register Handler: ' + form.as)
   const response = await axios.post(
-    `${apiBaseUrl}/register?as=customer`,
+    `${apiBaseUrl}/register`,
     form,
     { headers: { Accept: 'application/json' } }
   )
 
-  if (response.status === 200) {
+  /* if (response.status === 200) {
     Cookies.set('token', response.data.data.token)
-    window.location.href = nextStep
-  }
+    // window.location.href = nextStep
+    this.$router.push(nextStep)
+  } */
 
   return response
 }
