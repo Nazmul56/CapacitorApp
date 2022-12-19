@@ -1,9 +1,10 @@
+/* eslint-disable camelcase */
 import axios from 'axios'
 import { login_api, questionnaires_api } from '../const/api'
 import { apiBaseUrl } from '../const/config'
 import Cookies from 'js-cookie'
 
-const objectToFormData = (obj) => {
+/* const objectToFormData = (obj) => {
   const formData = new FormData()
   Object.keys(obj).forEach((key) => {
     if (typeof obj[key] === 'object') {
@@ -16,7 +17,7 @@ const objectToFormData = (obj) => {
     }
   })
   return formData
-}
+} */
 
 // Service for authentication (Login/Registration )
 // Login API Logic.
@@ -26,6 +27,7 @@ export const loginHanadler = async ({ email, password }) => {
     { email, password },
     { headers: { Accept: 'application/json' } }
   )
+  console.log('loginHanadler login token:', response.data.data.token)
   return response.data.data
 }
 

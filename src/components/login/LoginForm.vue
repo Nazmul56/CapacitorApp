@@ -34,9 +34,10 @@
 <script>
 // import { useToast } from 'vue-toastification';
 import { loginHanadler } from '../../service/authentication'
-import { errorHanadler } from '../../service/error'
-import { useQuasar } from 'quasar'
-import { usingToast } from '../../utils/toastUtils'
+// import { errorHanadler } from '../../service/error'
+import { useQuasar, Cookies } from 'quasar'
+// import { usingToast } from '../../utils/toastUtils'
+import { Toast } from '@capacitor/toast'
 
 export default {
   name: 'Registration-form-section',
@@ -67,38 +68,55 @@ export default {
     async submitLogin () {
       this.validation_errors = ''
       try {
-        const { user, token, questionnaire } = await loginHanadler(
+        const { questionnaire, token } = await loginHanadler(
           this.login_form
         ) // Service for login handling.
-        const LStoken = useCookie('token')
-        const LSuser = useCookie('user')
-        LStoken.value = token
-        LSuser.value = user
-        // this.toast.success('Login Successful!');
-        usingToast('success', 'Login Successful!')
-        // this.q.notify({
-        //   message: "Login Successful!",
-        //   color: "green",
-        //   position: "top",
-        // });
-        if (questionnaire == 1) {
+
+        console.log('Login Api resp', questionnaire.token)
+        this.setCookies(token)
+
+        // Get token for test
+        this.getCookies()
+
+        // usingToast('success', 'Login Successful!')
+
+        this.showToast('success' + 'Login Successful!')
+        /* if (questionnaire === 1) {
           this.$router.push({
             path: '/wall'
           })
+          // this.$router.push('login')
         } else {
           this.$router.push({
             path: '/questionnaire-start'
           })
-        }
+        } */
       } catch (error) {
-        const errorResponse = errorHanadler(error) // Service for error handling.
+        console.log('Login Api err', error)
         // this.q.notify({
         //   message: errorHanadler(error),
         //   color: "red",
         //   position: "top",
         // });
-        usingToast('error', errorHanadler(error))
+        // usingToast('error', errorHanadler(error))
       }
+    },
+    // Set cookies
+    getCookies () {
+      const value = Cookies.get('token')
+      console.log('get tooken: ' + value)
+    },
+
+    // Get cookies
+    setCookies (value) {
+      // const value = 'cbm_cookie'
+      Cookies.set('token', value)
+      console.log('set token: ' + value)
+    },
+    async showToast (textStr) {
+      await Toast.show({
+        text: textStr
+      })
     }
   }
 }
