@@ -33,7 +33,7 @@ export const loginHanadler = async ({ email, password }) => {
 
 export const RegisterHandler = async (form, nextStep) => {
   const response = await axios.post(
-    `${apiBaseUrl}/register`,
+    `${apiBaseUrl}/register?as=customer`,
     form,
     { headers: { Accept: 'application/json' } }
   )

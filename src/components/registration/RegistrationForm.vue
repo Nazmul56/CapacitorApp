@@ -1,3 +1,5 @@
+<!-- eslint-disable camelcase -->
+<!-- eslint-disable camelcase -->
 <template>
   <div class="bs-5">
     <div class="d-flex align-items-center form-section-right my-0">
@@ -461,12 +463,12 @@ info@casabeaumonde.com for CBM and to your email address.
 </template>
 
 <script>
-import customIcon from '@/components/general/customIcon.vue'
-import axios from 'axios'
+// import customIcon from '../../components/general/customIcon.vue'
+// import axios from 'axios'
 // // import { useToast } from "vue-toastification";;
 import { RegisterHandler } from '../../service/authentication.js'
 import { useQuasar } from 'quasar'
-import { usingToast } from '~~/utils/toastUtils'
+import { usingToast } from '../../utils/toastUtils'
 
 export default {
   props: [
@@ -479,7 +481,7 @@ export default {
     'role'
   ],
   components: {
-    customIcon
+    // customIcon
   },
   setup () {
     // const toast = useToast();
@@ -545,6 +547,7 @@ export default {
     }
   },
   mounted () {
+    // eslint-disable-next-line camelcase
     const url_string = window.location.href
     const url = new URL(url_string)
     this.register_form.as = url.searchParams.get('as')
@@ -557,6 +560,7 @@ export default {
   .bs-5 pre strong {
     font-weight: bold;
   }
+
   .bs-5 pre {
     width: 100%;
     max-width: 100%;

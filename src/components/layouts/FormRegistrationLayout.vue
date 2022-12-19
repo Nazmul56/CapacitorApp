@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div class="bs-5">
         <div class="container bg-brand-800 font-color-white">
             <div class="row d-flex registration-form-wrapper">

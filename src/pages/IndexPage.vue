@@ -15,6 +15,7 @@
     <q-btn label="FCM Listener" color="primary" @click="addListeners" />
 
     <q-btn label="Login page" color="primary" @click="moveToAnotherPage" />
+    <q-btn label="Registration" color="primary" @click="moveToRegisterPage" />
 
     <q-dialog v-model="alert">
       <q-card>
@@ -68,7 +69,6 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { NativeBiometric, BiometryType } from 'capacitor-native-biometric'
-
 import { Cookies } from 'quasar'
 import { Camera, CameraResultType } from '@capacitor/camera'
 import { Dialog } from '@capacitor/dialog'
@@ -227,6 +227,9 @@ export default {
     },
     moveToAnotherPage () {
       this.$router.push('login')
+    },
+    moveToRegisterPage () {
+      this.$router.push('registration')
     }
     /* async getDeliveredNotifications () {
       const notificationList = await PushNotifications.getDeliveredNotifications()

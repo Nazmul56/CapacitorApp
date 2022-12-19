@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import FormLayout from '@/components/layouts/FormLayout.vue'
-import FormSideImage from '~~/components/layouts/FormSideImage.vue'
-import TwoFactorAuthForm from '~~/components/registration/TwoFactorAuthForm.vue'
+import FormLayout from '../../components/layouts/FormLayout.vue'
+import FormSideImage from '../../components/layouts/FormSideImage.vue'
+import TwoFactorAuthForm from '../../components/registration/TwoFactorAuthForm.vue'
 
 export default {
   name: 'Landing-Main',

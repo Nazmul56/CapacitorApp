@@ -22,13 +22,14 @@
 </template>
 
 <script>
-import axios from 'axios'
-import customIcon from '../general/customIcon.vue'
+// import axios from 'axios'
+// import customIcon from '../general/customIcon.vue'
 import { OTPHandler, OTPResendCode } from '../../service/authentication'
-// // import { useToast } from "vue-toastification";;
-import { apiBaseUrl } from '~~/const/config'
+// // import { useToast } from "vue-toastification"; ;
+// import { apiBaseUrl } from '../const/config'
 import { useQuasar } from 'quasar'
-import { usingToast } from '~~/utils/toastUtils'
+import { usingToast } from '../../utils/toastUtils'
+import { Toast } from '@capacitor/toast'
 
 export default {
   props: [
@@ -41,7 +42,7 @@ export default {
     'role'
   ],
   components: {
-    customIcon
+    // customIcon
   },
   data () {
     return {
@@ -80,7 +81,7 @@ export default {
     },
     async submitOTP () {
       const code = this.code
-      if (code == '') {
+      if (code === '') {
         // this.toast.error('Code is empty.');
         //         this.q.notify({
         //     message: "Code is empty.",
@@ -102,6 +103,11 @@ export default {
       } catch (error) {
         this.formVerification(error)
       }
+    },
+    async usingToast (textStr) {
+      await Toast.show({
+        text: textStr
+      })
     }
   }
 }

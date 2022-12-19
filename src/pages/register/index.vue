@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import FormRegistrationLayout from '@/components/layouts/FormRegistrationLayout.vue'
-import FormSideImage from '~~/components/layouts/FormSideImage.vue'
-import RegistrationForm from '@/components/registration/RegistrationForm.vue'
+import FormRegistrationLayout from '../../components/layouts/FormRegistrationLayout.vue'
+import FormSideImage from '../../components/layouts/FormSideImage.vue'
+import RegistrationForm from '../../components/registration/RegistrationForm.vue'
 
 export default {
   name: 'Landing-Main',
